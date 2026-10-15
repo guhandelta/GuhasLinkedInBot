@@ -1,0 +1,9 @@
+{
+  "email_recipient": "you@example.com",
+  "telegram": {
+    "username": "@your_username",
+    "user_id": null,
+    "chat_id": null,
+    "connection_status": "pending_bot_setup_and_owner_verification"
+  }
+}

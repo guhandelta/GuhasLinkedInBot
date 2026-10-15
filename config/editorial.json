@@ -1,0 +1,154 @@
+{
+  "audience": "UI developers, UX designers, and people building AI features",
+  "audience_confirmed": false,
+  "topics": [
+    "React, Solid, Qwik, Next.js, Gatsby, and Remix",
+    "Native browser APIs as alternatives to dependencies, with practical tradeoffs",
+    "New browser APIs, their support status, and progressive enhancement",
+    "AI tools and techniques for building user interfaces",
+    "UX design and how it is evolving with AI",
+    "UX patterns for applications with AI features",
+    "UI bugs, reproducible examples, root causes, and fixes"
+  ],
+  "voice": "Clear, practical, specific, and conversational. Explain one useful idea at a time.",
+  "post_style": {
+    "reference": "docs/post-style.md",
+    "opening": "Lead with a concrete UI, accessibility, AI, or UX problem and why it matters.",
+    "structure": [
+      "Explain the concept in short paragraphs",
+      "Choose either a code walkthrough or an informational explainer based on the subject",
+      "For code walkthroughs, show anti-patterns and corrected examples",
+      "For informational posts, explain what changed, how it works, benefits, limitations, and implications without requiring code",
+      "Give practical takeaways, limitations, and a short checklist",
+      "End with a relevant question or takeaway, then focused hashtags"
+    ],
+    "formatting": "Use short lines, clear section labels, restrained check/cross markers, and plain-text code that remains readable without syntax highlighting.",
+    "adapt_to_topic": "For non-code AI or UX topics, use contrasting interface behaviors or user journeys instead of forcing code examples.",
+    "hashtags": "Use a small set of relevant technical and audience hashtags.",
+    "visual_role": "Summarize or demonstrate the post; keep the key lesson readable at a glance."
+  },
+  "freshness": {
+    "preferred_window_days": 30,
+    "require_why_now": true,
+    "guidance": "Prefer developments from the last 30 days. Older fundamentals are useful only with a specific current application, newly relevant tradeoff, or recent change. Avoid generic introductions and recycled basics. Never invent novelty or a publication date to pass this policy.",
+    "evidence": "Include a primary-source URL, a verified development date when available, and an explanation of what the audience learns now. Undated or older developments require explicit review notes; no unsupported claims of being new.",
+    "skip_when": "If research yields no useful current angle, stop with an explanation instead of filling the queue with stale material."
+  },
+  "infographics": {
+    "default_format": "static",
+    "animated_gif_allowed": true,
+    "animate_when": [
+      "Demonstrating an interaction, focus movement, or UI bug and its fix",
+      "Showing a sequence, state transition, or AI response lifecycle",
+      "Comparing before and after behavior where motion explains the difference"
+    ],
+    "motion_guidance": "Use a short, readable sequence with deliberate pauses. Avoid flashing and decorative motion. Include a useful static summary and alternative text.",
+    "reference_style": "Keep diagram labels and layout visible while moving markers or highlights along connections to explain a sequence. Use before/after panels and labeled flows where appropriate; use original artwork and the owner's branding.",
+    "approval": "Preview the complete animation, final post, and static fallback together. Any correction to any asset requires a new approval version.",
+    "publishing": "Verify animated GIF support for the actual LinkedIn API path before selecting the published asset. Never silently replace an approved asset; request approval for a different format."
+  },
+  "timezone": "America/New_York",
+  "posting_schedule": {
+    "approval_requests_per_week": 3,
+    "days": [
+      "monday",
+      "wednesday",
+      "friday"
+    ],
+    "local_time": "09:00",
+    "timezone": "America/New_York",
+    "days_and_time_are_working_defaults": true,
+    "activation": "pending_integrations",
+    "publishing": "Publish only after approval of the exact post and infographic."
+  },
+  "custom_topics": {
+    "enabled": true,
+    "intended_channels": [
+      "telegram",
+      "gmail"
+    ],
+    "telegram_command": "/topic <your idea>",
+    "email_subject_prefix": "New topic:",
+    "intake_status": "local_cli_available; email_and_telegram_pending_integration",
+    "weekly_cadence": "Custom requests are additional; do not replace or reschedule the three weekly requests.",
+    "approval": "Use the same research, infographic, correction, and first-valid-response approval workflow.",
+    "topic_scope": "Owner-supplied topics may extend beyond the usual topic list. Preserve the requested subject and angle; do not silently substitute another topic.",
+    "freshness": "Apply the same factual and timeliness review. Flag an older topic honestly and look for a useful current application; never manufacture novelty."
+  },
+  "destinations": {
+    "personal_linkedin": true,
+    "linkedin_groups": [
+      {
+        "id": "715247",
+        "name": "AI + UX Community: Design Thinking, User Experience & Artificial Intelligence",
+        "url": "https://www.linkedin.com/groups/715247/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "3998994",
+        "name": "AI-DLC: A Network for AI Driven Software Development, AppSec & Software Engineering Leaders",
+        "url": "https://www.linkedin.com/groups/3998994/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "6744403",
+        "name": "AI, ML, Java, React, Angular, Data Science, Fintech, IoT, Robotics, Cloud Artificial Intelligence",
+        "url": "https://www.linkedin.com/groups/6744403/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "3746827",
+        "name": "Artificial Intelligence",
+        "url": "https://www.linkedin.com/groups/3746827/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "9078014",
+        "name": "AngularJS, React JS, Java Full Stack, Front End & Backend Engineers, UI/UX Developers, UI Developer",
+        "url": "https://www.linkedin.com/groups/9078014/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "10447580",
+        "name": "React Js & React Native Developer's India",
+        "url": "https://www.linkedin.com/groups/10447580/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "6519652",
+        "name": "React Developers - ReactJS & React Native Professional Development Mastermind",
+        "url": "https://www.linkedin.com/groups/6519652/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "4314060",
+        "name": "JavaScript TypeScript | React Angular Vue Svelte NodeJS Express Next NestJS Ionic Nuxt Remix Ember",
+        "url": "https://www.linkedin.com/groups/4314060/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "8267511",
+        "name": "JavaScript Developer",
+        "url": "https://www.linkedin.com/groups/8267511/",
+        "publishing_access": "unverified"
+      },
+      {
+        "id": "121615",
+        "name": "JavaScript",
+        "url": "https://www.linkedin.com/groups/121615/",
+        "publishing_access": "unverified"
+      }
+    ]
+  },
+  "approvals": {
+    "email_provider": "gmail",
+    "email_connection_status": "not_connected",
+    "channels": [
+      "email",
+      "telegram"
+    ],
+    "first_valid_decision_wins": true,
+    "require_approval_after_corrections": true,
+    "contacts_file": "config/contacts.local.json"
+  }
+}
