@@ -1,5 +1,4 @@
 {
-  "email_recipient": "you@example.com",
   "telegram": {
     "username": "@your_username",
     "user_id": null,

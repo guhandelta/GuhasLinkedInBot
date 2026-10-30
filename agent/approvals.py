@@ -61,8 +61,7 @@ class ApprovalLedger:
         if not draft_id or ttl_seconds <= 0:
             raise ValueError('Draft ID and positive expiry are required')
         encoded = json.dumps(payload, sort_keys=True, allow_nan=False)
-        tokens = {channel: secrets.token_urlsafe(32)
-                  for channel in ('email', 'telegram')}
+        tokens = {'telegram': secrets.token_urlsafe(32)}
         with self._connection() as db:
             db.execute('BEGIN IMMEDIATE')
             latest = db.execute(
@@ -84,8 +83,8 @@ class ApprovalLedger:
 
     def decide(self, token, channel, action, feedback=''):
         """Atomically accept the first valid action; never publish directly."""
-        if channel not in ('email', 'telegram'):
-            raise ValueError('Unknown channel')
+        if channel != 'telegram':
+            raise ValueError('Telegram is the only enabled approval channel')
         if action not in ('approve', 'changes', 'reject'):
             raise ValueError('Unknown action')
         if action == 'changes' and not feedback.strip():

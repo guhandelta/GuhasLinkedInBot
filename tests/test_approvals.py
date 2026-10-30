@@ -18,7 +18,7 @@ class ApprovalTests(unittest.TestCase):
                         'destinations': ['personal']}
         self.request = self.ledger.request('draft', self.payload)
 
-    def decide(self, channel='email', action='approve', feedback=''):
+    def decide(self, channel='telegram', action='approve', feedback=''):
         return self.ledger.decide(self.request['tokens'][channel], channel,
                                   action, feedback)
 
@@ -26,15 +26,14 @@ class ApprovalTests(unittest.TestCase):
         with sqlite3.connect(self.path) as db:
             return db.execute('SELECT COUNT(*) FROM publish_jobs').fetchone()[0]
 
-    def test_either_channel_closes_both(self):
+    def test_telegram_approval_is_single_use(self):
         self.assertTrue(self.decide('telegram')['accepted'])
-        self.assertFalse(self.decide('email')['accepted'])
         self.assertFalse(self.decide('telegram')['accepted'])
         self.assertEqual(self.jobs(), 1)
 
-    def test_concurrent_approvals_queue_once(self):
+    def test_duplicate_telegram_approvals_queue_once(self):
         with concurrent.futures.ThreadPoolExecutor(2) as executor:
-            results = list(executor.map(self.decide, ['email', 'telegram']))
+            results = list(executor.map(self.decide, ['telegram', 'telegram']))
         self.assertEqual(sum(r['accepted'] for r in results), 1)
         self.assertEqual(self.jobs(), 1)
 
@@ -51,7 +50,7 @@ class ApprovalTests(unittest.TestCase):
                                  'WHERE draft_id=? AND version=2', ('draft',)).fetchone()[0]
         self.assertEqual(json.loads(payload)['text'], 'Revised')
 
-    def test_rejection_blocks_other_channel(self):
+    def test_rejection_blocks_duplicate_telegram_decision(self):
         self.assertTrue(self.decide(action='reject')['accepted'])
         self.assertFalse(self.decide('telegram')['accepted'])
         self.assertEqual(self.jobs(), 0)
@@ -63,15 +62,14 @@ class ApprovalTests(unittest.TestCase):
         self.assertEqual(self.jobs(), 0)
 
     def test_tokens_are_channel_bound(self):
-        result = self.ledger.decide(self.request['tokens']['email'],
-                                    'telegram', 'approve')
-        self.assertEqual(result['state'], 'invalid')
+        with self.assertRaises(ValueError):
+            self.ledger.decide(self.request['tokens']['telegram'], 'email', 'approve')
         self.assertTrue(self.decide()['accepted'])
 
     def test_superseded_and_approved_payloads(self):
         revised = self.ledger.request('draft', self.payload)
         self.assertEqual(self.decide()['state'], 'superseded')
-        self.ledger.decide(revised['tokens']['email'], 'email', 'approve')
+        self.ledger.decide(revised['tokens']['telegram'], 'telegram', 'approve')
         with self.assertRaises(ValueError):
             self.ledger.request('draft', self.payload)
 

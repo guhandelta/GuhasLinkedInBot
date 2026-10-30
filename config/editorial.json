@@ -58,18 +58,18 @@
     "local_time": "09:00",
     "timezone": "America/New_York",
     "days_and_time_are_working_defaults": true,
-    "activation": "pending_integrations",
+    "activation": "pending_actions_workflow_and_integrations",
     "publishing": "Publish only after approval of the exact post and infographic."
   },
   "custom_topics": {
     "enabled": true,
     "intended_channels": [
       "telegram",
-      "gmail"
+      "github_actions_dispatch"
     ],
     "telegram_command": "/topic <your idea>",
-    "email_subject_prefix": "New topic:",
-    "intake_status": "local_cli_available; email_and_telegram_pending_integration",
+    "github_actions_input": "workflow_dispatch mode=custom topic=<your idea>",
+    "intake_status": "local_cli_available; Telegram and GitHub Actions intake pending integration",
     "weekly_cadence": "Custom requests are additional; do not replace or reschedule the three weekly requests.",
     "approval": "Use the same research, infographic, correction, and first-valid-response approval workflow.",
     "topic_scope": "Owner-supplied topics may extend beyond the usual topic list. Preserve the requested subject and angle; do not silently substitute another topic.",
@@ -141,12 +141,7 @@
     ]
   },
   "approvals": {
-    "email_provider": "gmail",
-    "email_connection_status": "not_connected",
-    "channels": [
-      "email",
-      "telegram"
-    ],
+    "channels": ["telegram"],
     "first_valid_decision_wins": true,
     "require_approval_after_corrections": true,
     "contacts_file": "config/contacts.local.json"
